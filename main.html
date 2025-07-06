@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaz Solutions – Digital Transformation Partner</title>
+    <style>
+        /* 1. GLOBAL STYLES & FONT IMPORT */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap');
+
+        :root {
+            --teal-dark: #004d4d;
+            --teal-primary: #008080;
+            --teal-light: #e0f2f1;
+            --yellow-accent: #FFC107;
+            --orange-cta: #F97316;
+            --dark-gray: #1F2937;
+            --medium-gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        /* 2. LAYOUT & UTILITY CLASSES */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: var(--teal-dark);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--orange-cta);
+            color: var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 3. HEADER & NAVIGATION */
+        .main-header {
+            background-color: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--teal-primary);
+            text-decoration: none;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--teal-primary);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* 4. HERO SECTION */
+        #hero {
+            background: linear-gradient(135deg, var(--teal-light), var(--white));
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            color: var(--teal-dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            color: var(--medium-gray);
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* 5. CLIENTS SECTION */
+        #clients {
+            background-color: var(--light-gray);
+            padding: 40px 0;
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+        }
+
+        .client-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--medium-gray);
+            text-align: center;
+        }
+
+        /* 6. SERVICES SECTION */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+
+        .service-card .icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+            color: var(--teal-primary);
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        
+        .service-card p {
+            color: var(--medium-gray);
+        }
+
+        /* 7. SUCCESS STORY SECTION */
+        #success-story {
+            background-color: var(--teal-light);
+        }
+        .success-story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .success-story-text h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: var(--teal-dark);
+            margin-bottom: 20px;
+        }
+        
+        .success-story-text p {
+            margin-bottom: 30px;
+        }
+
+        .success-story-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .metric-box {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--yellow-accent);
+        }
+        
+        .metric-box .number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+
+        .metric-box .label {
+            font-size: 1rem;
+            color: var(--medium-gray);
+        }
+
+        /* 8. WHY US SECTION */
+        #why-us {
+            background-color: var(--light-gray);
+        }
+        
+        /* 9. TECH STACK SECTION */
+        .tech-stack-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .tech-stack-logos .icon {
+            height: 50px;
+            width: auto;
+            color: var(--medium-gray);
+            transition: color 0.3s ease;
+        }
+        
+        .tech-stack-logos .icon:hover {
+            color: var(--teal-primary);
+        }
+
+        /* 10. CONTACT SECTION */
+        #contact {
+            background: var(--teal-dark);
+            color: var(--white);
+            text-align: center;
+        }
+
+        #contact .section-title, #contact .section-subtitle {
+            color: var(--white);
+        }
+        
+        #contact .section-subtitle {
+            opacity: 0.9;
+        }
+
+        /* 11. FOOTER */
+        .main-footer {
+            background-color: var(--dark-gray);
+            color: var(--light-gray);
+            padding: 60px 0 20px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col p, .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col a:hover {
+            color: var(--yellow-accent);
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--medium-gray);
+            font-size: 0.9rem;
+        }
+        
+        .partner-logos .icon {
+            height: 30px;
+            width: auto;
+            color: var(--white);
+            margin-right: 15px;
+        }
+
+
+        /* 12. RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .section-title { font-size: 2.2rem; }
+            #hero h1 { font-size: 3rem; }
+            .success-story-content { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            .main-header .container { flex-direction: column; gap: 15px; }
+            .main-nav ul { gap: 20px; }
+            section { padding: 60px 0; }
+            .section-title { font-size: 2rem; }
+            #hero { padding: 80px 0; }
+            #hero h1 { font-size: 2.5rem; }
+            #hero p { font-size: 1.1rem; }
+            .client-logos { filter: grayscale(0); opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">Zaz Solutions</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#success-story">Success Stories</a></li>
+                    <li><a href="#why-us">Why Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section id="hero">
+            <div class="container">
+                <h1>From Scattered Workflows to Digital Growth</h1>
+                <p>We are your long-term partner for ERP, e-commerce, and data-driven transformation, guiding you from scoping workshop to continuous growth.</p>
+                <a href="#contact" class="btn btn-primary">Start Your Transformation</a>
+            </div>
+        </section>
+
+        <!-- CLIENTS SECTION -->
+        <section id="clients">
+            <div class="container">
+                <div class="client-logos">
+                    <div class="client-logo">Egyptian Armed Forces</div>
+                    <div class="client-logo">Awraquna (KSA)</div>
+                    <div class="client-logo">Wonder Beauties</div>
+                    <div class="client-logo">Ealan Misr</div>
+                    <div class="client-logo">Abouhetta Car Dealership</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">Our Core Services</h2>
+                <p class="section-subtitle">We equip every client with scalable digital tools that boost efficiency, transparency, and revenue across key business areas.</p>
+                <div class="services-grid">
+                    <!-- Service Card 1 -->
+                    <div class="service-card">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" /></svg>
+                        <h3>Odoo Implementation</h3>
+                        <p>End-to-end deployment, module tailoring, API integrations, and automation for versions 15 through 18.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="service-card">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.25a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 0 1 .75-.75h3.75m-4.5 0v-7.5a.75.75 0 0 1 .75-.75h3.75m10.5 0v-7.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21" /></svg>
+                        <h3>E-Commerce & Web</h3>
+                        <p>Storefront design, payment/shipping integration, multi-store setups, and performance tuning with Cloudflare.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="service-card">
+                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" /></svg>
+                        <h3>Digital Marketing</h3>
+                        <p>Content calendars, bilingual copywriting (Arabic/English), and full campaign management for maximum reach.</p>
+                    </div>
+                     <!-- Service Card 4 -->
+                    <div class="service-card">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 11.21 12.77 10.5 12 10.5s-1.536.71-2.121 1.256c-1.172.879-1.172 2.303 0 3.182Z" /></svg>
+                        <h3>Accounting & IFRS 16</h3>
+                        <p>Right-of-Use asset workflows, sub-leasing scenarios, and automated journal entries for complex compliance.</p>
+                    </div>
+                     <!-- Service Card 5 -->
+                    <div class="service-card">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" /></svg>
+                        <h3>Hosting & DevOps</h3>
+                        <p>Cost-optimized configurations on GCP, AWS, or on-prem. CI/CD pipelines, performance audits, and snapshots.</p>
+                    </div>
+                     <!-- Service Card 6 -->
+                    <div class="service-card">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.354a15.056 15.056 0 0 1-4.5 0m3.75-12.236c-.527-.023-1.05-.037-1.584-.037a6.006 6.006 0 0 0-5.92 5.99v.084a6.006 6.006 0 0 0 5.92 5.99c.534 0 1.057-.014 1.584-.037m-5.92-5.99h5.92" /></svg>
+                        <h3>Training & Support</h3>
+                        <p>On-site and remote sessions, SLA-based help desk, and bilingual documentation with a < 1 hr first-response time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUCCESS STORY SECTION -->
+        <section id="success-story">
+            <div class="container">
+                <div class="success-story-content">
+                    <div class="success-story-text">
+                        <h2>Success Story: Awraquna</h2>
+                        <p>We delivered a headless Odoo e-commerce site with optimized SEO schema, Cloudflare caching, and automated fulfillment for a leading thermal paper shop in KSA. The results speak for themselves.</p>
+                        <a href="#" class="btn btn-primary" style="background-color: var(--teal-primary);">Learn More</a>
+                    </div>
+                    <div class="success-story-metrics">
+                        <div class="metric-box">
+                            <div class="number">20%</div>
+                            <div class="label">YoY Sales Growth in Q1</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="number">35%</div>
+                            <div class="label">Faster Customer Checkout Time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY US SECTION -->
+        <section id="why-us">
+            <div class="container">
+                <h2 class="section-title">Why Clients Choose Zaz</h2>
+                <p class="section-subtitle">We go beyond code to become a true extension of your team, delivering tangible value at every stage of your digital journey.</p>
+                <div class="services-grid">
+                    <!-- Why Us Card 1 -->
+                    <div class="service-card">
+                        <h3>Vertical Know-How</h3>
+                        <p>We bridge the gap between CFO pain points and developer execution, speaking both languages fluently.</p>
+                    </div>
+                    <!-- Why Us Card 2 -->
+                    <div class="service-card">
+                        <h3>Rapid Prototyping</h3>
+                        <p>See your vision come to life with Minimum Viable Products (MVPs) delivered in weeks, not quarters.</p>
+                    </div>
+                    <!-- Why Us Card 3 -->
+                    <div class="service-card">
+                        <h3>Bilingual Delivery</h3>
+                        <p>Flawless execution in both Arabic and English across assets, training, and ongoing support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH STACK SECTION -->
+        <section id="tech-stack">
+            <div class="container">
+                <h2 class="section-title">Our Technology Stack</h2>
+                <p class="section-subtitle">We use a modern, robust, and scalable set of tools and frameworks to build solutions that last.</p>
+                <div class="tech-stack-logos">
+                    <svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Odoo</title><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zM8.83 5h6.34L17.75 7.58 15.17 10.17 12.58 7.58 10.17 10.17 7.58 7.58 8.83 5zM5 8.83l2.58 2.59-2.58 2.58V8.83zm11.58 0L14 11.42l2.58 2.58v-5.17zM8.83 19l2.59-2.58 2.58 2.58-2.58-2.59-2.59 2.59z"/></svg>
+                    <svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Python</title><path d="M23.12,10.32,18,13.1a.48.48,0,0,1-.6-.2L15,8.19V3.5A1.5,1.5,0,0,0,13.5,2h-3A1.5,1.5,0,0,0,9,3.5V10H7.5A1.5,1.5,0,0,0,6,11.5v3A1.5,1.5,0,0,0,7.5,16H9v2.5A1.5,1.5,0,0,0,10.5,20h7a1.5,1.5,0,0,0,1.5-1.5v-7a.47.47,0,0,1,.18-.38l4.12-2.38a.48.48,0,0,0,.18-.68l-1-1.74A.48.48,0,0,0,23.12,10.32ZM12,11.5a1.5,1.5,0,1,1,1.5,1.5A1.5,1.5,0,0,1,12,11.5ZM17.1,7,12,9.88a.48.48,0,0,1-.6-.2L9,4.95V3.5h4.5V5a1.5,1.5,0,0,0,1.5,1.5h1.92ZM.88,13.68,6,10.9a.48.48,0,0,1,.6.2L9,15.81v4.69A1.5,1.5,0,0,0,10.5,22h3A1.5,1.5,0,0,0,15,20.5V14h1.5A1.5,1.5,0,0,0,18,12.5v-3A1.5,1.5,0,0,0,16.5,8H15V5.5A1.5,1.5,0,0,0,13.5,4H6.5A1.5,1.5,0,0,0,5,5.5v7a.47.47,0,0,1-.18.38L.88,15.26a.48.48,0,0,0-.18.68l1,1.74A.48.48,0,0,0,.88,13.68ZM12,12.5a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,12,12.5Z"/></svg>
+                    <svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Cloud</title><path d="M12.181 12.001c0-1.21-.492-2.42-1.309-3.238l-2.03-2.03c-1.597-1.597-4.226-1.597-5.823 0s-1.597 4.226 0 5.823l2.03 2.03c.817.817 2.029 1.309 3.238 1.309s2.42-.492 3.238-1.309l.654-.654c1.597-1.597 1.597-4.226 0-5.823zm-3.338 2.029c-.41.41-.95.613-1.488.613s-1.08-.204-1.488-.613c-.817-.817-.817-2.158 0-2.975s2.158-.817 2.975 0c.817.817.817 2.158 0 2.975zm8.979-8.979c-1.597-1.597-4.226-1.597-5.823 0l-.654.654c-1.597 1.597-1.597 4.226 0 5.823l.654.654c.817.817 2.029 1.309 3.238 1.309s2.42-.492 3.238-1.309l2.03-2.03c1.597-1.597 1.597-4.226 0-5.823l-2.03-2.03zm-1.488 5.823c-.817.817-2.158.817-2.975 0s-.817-2.158 0-2.975c.817-.817 2.158-.817 2.975 0s.817 2.158 0 2.975zM12 11.819c-1.21 0-2.42-.492-3.238-1.309l-2.03-2.03c-1.597-1.597-1.597-4.226 0-5.823s4.226-1.597 5.823 0l2.03 2.03c.817.817 1.309 2.029 1.309 3.238s-.492 2.42-1.309 3.238c-1.597 1.597-4.226 1.597-5.823 0l-2.03-2.03c-.02-.02-.04-.03-.06-.05zm2.029-3.338c.41.41.95.613 1.488.613s1.08-.204 1.488-.613c.817-.817.817-2.158 0-2.975s-2.158-.817-2.975 0c-.817.817-.817 2.158 0 2.975zM5.18 17.822c1.21 0 2.42.492 3.238 1.309l2.03 2.03c1.597 1.597 1.597 4.226 0 5.823s-4.226 1.597-5.823 0l-2.03-2.03c-.817-.817-1.309-2.029-1.309-3.238s.492-2.42 1.309-3.238c1.597-1.597 4.226-1.597 5.823 0l2.03 2.03c.02.02.04.03.06.05zM8.418 20.85c-.41-.41-.95-.613-1.488-.613s-1.08.204-1.488.613c-.817.817-.817 2.158 0 2.975s2.158.817 2.975 0c.817-.817.817-2.158 0-2.975z"/></svg>
+                    <svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Docker</title><path d="M23.151 10.74c-.31-.122-.64-.19-.98-.21h-3.95V4.65c0-2.28-1.92-4.14-4.27-4.14H4.27C1.92.51 0 2.37 0 4.65v11.1c0 2.28 1.92 4.14 4.27 4.14h7.02c.32 0 .63-.07.92-.18 1.13-.42 2.09-1.28 2.58-2.44.48-1.15.5-2.43.03-3.6l-.1-.28c-.42-1.1-1.22-2.02-2.28-2.58l.06-.2c.5-1.18.52-2.48.04-3.69zm-7.23-2.82c.54 0 .98.44.98.98s-.44.98-.98.98h-2.94c-.54 0-.98-.44-.98-.98s.44-.98.98-.98h2.94zm-5.88 0c.54 0 .98.44.98.98s-.44.98-.98.98H7.1c-.54 0-.98-.44-.98-.98s.44-.98.98-.98h2.94zM7.1 12.86c-.54 0-.98-.44-.98-.98s.44-.98.98-.98h2.94c.54 0 .98.44.98.98s-.44.98-.98.98H7.1zm5.88 0c-.54 0-.98-.44-.98-.98s.44-.98.98-.98h2.94c.54 0 .98.44.98.98s-.44.98-.98.98h-2.94zm-.2 2.94c0 .54-.44.98-.98.98H7.1c-.54 0-.98-.44-.98-.98s.44-.98.98-.98h4.7c.54 0 .98.44.98.98z"/></svg>
+                    <svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vue.js</title><path d="M24 1.187L12 21.375 0 1.187h4.938L12 14.25l7.062-13.063H24zM4.938 1.187L0 1.187l12 20.188L4.938 1.187z"/></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Ready to Start Your Digital Transformation?</h2>
+                <p class="section-subtitle">Reach out, and we'll arrange a discovery session to map your goals to an actionable roadmap—often within 24 hours.</p>
+                <a href="mailto:info@zazsolutions.com" class="btn btn-primary" style="background-color: var(--yellow-accent); color: var(--dark-gray);">Arrange a Discovery Session</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Zaz Solutions</h4>
+                    <p>Equipping every client with scalable digital tools that boost efficiency, transparency, and revenue.</p>
+                    <br>
+                    <div class="partner-logos">
+                        <svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Odoo</title><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zM8.83 5h6.34L17.75 7.58 15.17 10.17 12.58 7.58 10.17 10.17 7.58 7.58 8.83 5zM5 8.83l2.58 2.59-2.58 2.58V8.83zm11.58 0L14 11.42l2.58 2.58v-5.17zM8.83 19l2.59-2.58 2.58 2.58-2.58-2.59-2.59 2.59z"/></svg>
+                        <svg class="icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Cloud</title><path d="M12.181 12.001c0-1.21-.492-2.42-1.309-3.238l-2.03-2.03c-1.597-1.597-4.226-1.597-5.823 0s-1.597 4.226 0 5.823l2.03 2.03c.817.817 2.029 1.309 3.238 1.309s2.42-.492 3.238-1.309l.654-.654c1.597-1.597 1.597-4.226 0-5.823zm-3.338 2.029c-.41.41-.95.613-1.488.613s-1.08-.204-1.488-.613c-.817-.817-.817-2.158 0-2.975s2.158-.817 2.975 0c.817.817.817 2.158 0 2.975zm8.979-8.979c-1.597-1.597-4.226-1.597-5.823 0l-.654.654c-1.597 1.597-1.597 4.226 0 5.823l.654.654c.817.817 2.029 1.309 3.238 1.309s2.42-.492 3.238-1.309l2.03-2.03c1.597-1.597 1.597-4.226 0-5.823l-2.03-2.03zm-1.488 5.823c-.817.817-2.158.817-2.975 0s-.817-2.158 0-2.975c.817-.817 2.158-.817 2.975 0s.817 2.158 0 2.975zM12 11.819c-1.21 0-2.42-.492-3.238-1.309l-2.03-2.03c-1.597-1.597-1.597-4.226 0-5.823s4.226-1.597 5.823 0l2.03 2.03c.817.817 1.309 2.029 1.309 3.238s-.492 2.42-1.309 3.238c-1.597 1.597-4.226 1.597-5.823 0l-2.03-2.03c-.02-.02-.04-.03-.06-.05zm2.029-3.338c.41.41.95.613 1.488.613s1.08-.204 1.488-.613c.817-.817.817-2.158 0-2.975s-2.158-.817-2.975 0c-.817.817-.817-2.158 0 2.975zM5.18 17.822c1.21 0 2.42.492 3.238 1.309l2.03 2.03c1.597 1.597 1.597 4.226 0 5.823s-4.226 1.597-5.823 0l-2.03-2.03c-.817-.817-1.309-2.029-1.309-3.238s.492-2.42 1.309-3.238c1.597-1.597 4.226-1.597 5.823 0l2.03 2.03c.02.02.04.03.06.05zM8.418 20.85c-.41-.41-.95-.613-1.488-.613s-1.08.204-1.488.613c-.817.817-.817 2.158 0 2.975s2.158.817 2.975 0c.817-.817.817-2.158 0-2.975z"/></svg>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#success-story">Success Stories</a></li>
+                        <li><a href="#why-us">Why Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="mailto:info@zazsolutions.com">info@zazsolutions.com</a></li>
+                        <li><a href="tel:+201023888822">+20 1023888822</a></li>
+                        <li><a href="http://www.zazsolutions.com" target="_blank">www.zazsolutions.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2024 Zaz Solutions. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
